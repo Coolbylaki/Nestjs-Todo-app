@@ -1,0 +1,31 @@
+### Get all todos
+GET http://localhost:3000/todos
+
+
+### Create todo (valid request)
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "Learn NestJS",
+  "completed": false
+}
+
+
+### Create todo (invalid - should fail validation)
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": 123,
+  "completed": "no"
+}
+
+
+### Create todo (missing field test)
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "title": "Missing completed"
+}
