@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-interface Todo {
+export interface Todo {
   id: number;
   title: string;
   completed: boolean;
@@ -8,5 +8,23 @@ interface Todo {
 
 @Injectable()
 export class TodoService {
-  todos: Todo[] = [];
+  private todos: Todo[] = [];
+
+  getAll() {
+    return this.todos;
+  }
+
+  createTodo(title: string, completed: boolean): Todo {
+    const id = Date.now();
+
+    const todo = {
+      id: id,
+      title,
+      completed,
+    };
+
+    this.todos.push(todo);
+
+    return todo;
+  }
 }
