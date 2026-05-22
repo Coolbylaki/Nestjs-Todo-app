@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { NotFoundException } from '@nestjs/common';
 
 export interface Todo {
   id: number;
@@ -36,5 +37,21 @@ export class TodoService {
     this.todos.push(todo);
 
     return todo;
+  }
+
+  deleteTodo(id: string) {
+    const ID = parseInt(id);
+
+    for (let i = 0; i < this.todos.length; i++) {
+      if (this.todos[i].id === ID) {
+        const foundTodo = this.todos[i];
+
+        this.todos.splice(i, 1);
+
+        return foundTodo;
+      }
+    }
+
+    throw new NotFoundException('Todo not found');
   }
 }

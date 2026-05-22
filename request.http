@@ -4,7 +4,6 @@ GET http://localhost:3000/todos
 ### Get one todos
 GET http://localhost:3000/todos/1779449861912
 
-
 ### Create todo (valid request)
 POST http://localhost:3000/todos
 Content-Type: application/json
@@ -14,6 +13,8 @@ Content-Type: application/json
   "completed": false
 }
 
+### Delete one todo
+DELETE http://localhost:3000/todos/1779451848314
 
 ### Create todo (invalid - should fail validation)
 POST http://localhost:3000/todos
@@ -23,7 +24,6 @@ Content-Type: application/json
   "title": 123,
   "completed": "no"
 }
-
 
 ### Create todo (missing field test)
 POST http://localhost:3000/todos
