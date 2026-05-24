@@ -39,6 +39,24 @@ export class TodoService {
     return todo;
   }
 
+  updateTodo(id: string, title?: string, completed?: boolean): Todo {
+    const todo = this.todos.find((todo) => todo.id === parseInt(id));
+
+    if (!todo) {
+      throw new NotFoundException('Todo not found');
+    }
+
+    if (title !== undefined) {
+      todo.title = title;
+    }
+
+    if (completed !== undefined) {
+      todo.completed = completed;
+    }
+
+    return todo;
+  }
+
   deleteTodo(id: string) {
     const ID = parseInt(id);
 

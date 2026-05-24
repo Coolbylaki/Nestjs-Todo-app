@@ -2,7 +2,7 @@
 GET http://localhost:3000/todos
 
 ### Get one todos
-GET http://localhost:3000/todos/1779449861912
+GET http://localhost:3000/todos/1779598166660
 
 ### Create todo (valid request)
 POST http://localhost:3000/todos
@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ### Delete one todo
-DELETE http://localhost:3000/todos/1779451848314
+DELETE http://localhost:3000/todos/1779598166919
 
 ### Create todo (invalid - should fail validation)
 POST http://localhost:3000/todos
@@ -31,4 +31,29 @@ Content-Type: application/json
 
 {
   "title": "Missing completed"
+}
+
+### Update both title and completed
+PATCH http://localhost:3000/todos/1779598339542
+Content-Type: application/json
+
+{
+  "title": "Updated todo title",
+  "completed": true
+}
+
+### Update only title
+PATCH http://localhost:3000/todos/1779598339542
+Content-Type: application/json
+
+{
+  "title": "Updated title only"
+}
+
+### Update only completed
+PATCH http://localhost:3000/todos/1779598339542
+Content-Type: application/json
+
+{
+  "completed": false
 }
