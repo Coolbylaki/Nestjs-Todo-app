@@ -15,11 +15,9 @@ export class TodoService {
     return this.todos;
   }
 
-  getOne(id: string) {
-    const ID = parseInt(id);
-
+  getOne(id: number) {
     for (let i = 0; i < this.todos.length; i++) {
-      if (this.todos[i].id === ID) {
+      if (this.todos[i].id === id) {
         return this.todos[i];
       }
     }
@@ -39,8 +37,8 @@ export class TodoService {
     return todo;
   }
 
-  updateTodo(id: string, title?: string, completed?: boolean): Todo {
-    const todo = this.todos.find((todo) => todo.id === parseInt(id));
+  updateTodo(id: number, title?: string, completed?: boolean): Todo {
+    const todo = this.todos.find((todo) => todo.id === id);
 
     if (!todo) {
       throw new NotFoundException('Todo not found');
@@ -57,11 +55,9 @@ export class TodoService {
     return todo;
   }
 
-  deleteTodo(id: string) {
-    const ID = parseInt(id);
-
+  deleteTodo(id: number) {
     for (let i = 0; i < this.todos.length; i++) {
-      if (this.todos[i].id === ID) {
+      if (this.todos[i].id === id) {
         const foundTodo = this.todos[i];
 
         this.todos.splice(i, 1);

@@ -24,7 +24,7 @@ export class TodoController {
 
   @Get('/:id')
   getTodo(@Param('id') id: string) {
-    return this.todoService.getOne(id);
+    return this.todoService.getOne(parseInt(id));
   }
 
   @Post()
@@ -38,7 +38,7 @@ export class TodoController {
   @Patch('/:id')
   UpdateTodoDto(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
     return this.todoService.updateTodo(
-      id,
+      parseInt(id),
       updateTodoDto.title,
       updateTodoDto.completed,
     );
@@ -46,6 +46,6 @@ export class TodoController {
 
   @Delete('/:id')
   deleteTodo(@Param('id') id: string) {
-    return this.todoService.deleteTodo(id);
+    return this.todoService.deleteTodo(parseInt(id));
   }
 }

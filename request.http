@@ -14,7 +14,7 @@ Content-Type: application/json
 }
 
 ### Delete one todo
-DELETE http://localhost:3000/todos/1779598166919
+DELETE http://localhost:3000/todos/1779598561043
 
 ### Create todo (invalid - should fail validation)
 POST http://localhost:3000/todos
@@ -34,7 +34,7 @@ Content-Type: application/json
 }
 
 ### Update both title and completed
-PATCH http://localhost:3000/todos/1779598339542
+PATCH http://localhost:3000/todos/1779598561135
 Content-Type: application/json
 
 {
@@ -51,7 +51,7 @@ Content-Type: application/json
 }
 
 ### Update only completed
-PATCH http://localhost:3000/todos/1779598339542
+PATCH http://localhost:3000/todos/1779598561135
 Content-Type: application/json
 
 {
