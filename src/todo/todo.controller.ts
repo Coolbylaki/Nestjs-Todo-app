@@ -36,7 +36,7 @@ export class TodoController {
   }
 
   @Patch('/:id')
-  UpdateTodoDto(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
+  updateTodo(@Param('id') id: string, @Body() updateTodoDto: UpdateTodoDto) {
     return this.todoService.updateTodo(
       parseInt(id),
       updateTodoDto.title,
